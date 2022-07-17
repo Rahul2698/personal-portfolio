@@ -3,7 +3,7 @@ from .models import BlogPost
 
 
 def all_blogs(request):
-    blog_posts = BlogPost.objects.all()
+    blog_posts = BlogPost.objects.order_by('-date')
     return render(request,  'blogpost/all_blogs.html', {'blog_posts': blog_posts})
 
 

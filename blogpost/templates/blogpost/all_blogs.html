@@ -6,10 +6,11 @@
 </head>
 <body>
 <h1>This is the blog section</h1>
+<h2>Rahul has written {{ blog_posts.count }} blog{{ blog_posts.count | pluralize }}</h2>
 {% for blog_post in blog_posts %}
 <a href="{% url 'blogpost:details' blog_post.id %}"><h1>{{ blog_post.title }}</h1></a>
-<h5>{{ blog_post.date }}</h5>
-<p>{{ blog_post.description }}</p>
+<h5>{{ blog_post.date | date:'M d Y' | upper}}</h5>
+<p>{{ blog_post.description| striptags| truncatechars:100 }}</p> <!--safe: to execute html tags, striptags: to remove tags-->
 
 {% endfor %}
 </body>
