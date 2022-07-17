@@ -6,5 +6,11 @@
 </head>
 <body>
 <h1>This is the blog section</h1>
+{% for blog_post in blog_posts %}
+<h1>{{ blog_post.title }}</h1>
+<h5>{{ blog_post.date }}</h5>
+<p>{{ blog_post.description }}</p>
+
+{% endfor %}
 </body>
 </html>
