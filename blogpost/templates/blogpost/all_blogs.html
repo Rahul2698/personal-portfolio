@@ -1,10 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Blog</title>
-</head>
-<body>
+{% extends 'portfolio/base.html' %}
+
+{% block content %}
+
 <h1>This is the blog section</h1>
 <h2>Rahul has written {{ blog_posts.count }} blog{{ blog_posts.count | pluralize }}</h2>
 {% for blog_post in blog_posts %}
@@ -13,5 +10,5 @@
 <p>{{ blog_post.description| striptags| truncatechars:100 }}</p> <!--safe: to execute html tags, striptags: to remove tags-->
 
 {% endfor %}
-</body>
-</html>
+
+{% endblock %}
